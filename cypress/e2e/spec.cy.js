@@ -12,7 +12,7 @@ describe("ToS Test", () => {
       .should("include", "/assets/logo-white.png");
   });
 
-  it.only("Links", () => {
+  it("Links", () => {
     cy.visit("https://coreofscience.com/");
     cy.get("li:first-child > a").should("have.attr", "href", "/projects");
     cy.get("li:first-child > a").contains("PROJECTS", {
@@ -44,5 +44,28 @@ describe("ToS Test", () => {
       "src",
       "/assets/logo-tos.svg"
     );
+  });
+
+  it.only("Projects", () => {
+    cy.visit("https://coreofscience.com/");
+    cy.get(".projects > .container > h2").should("contain", "PROJECTS");
+    cy.get(".projects > .container > h2 > img").should(
+      "have.attr",
+      "src",
+      "/assets/gear-icon.png"
+    );
+
+    cy.get(".featured-projects > :nth-child(1)").should(
+      "contain",
+      "Bio data lab"
+    );
+
+    cy.get(".featured-projects > :nth-child(1) > p").contains(
+      "This project seeks to standardize methodologies for the treatment of analytical signals of biological origin from metabolomics and peptidomics analyses."
+    );
+
+    cy.get(".featured-projects > :nth-child(1) > a")
+      .should("have.attr", "href", "/projects/data-lab")
+      .and("have.text", "Learn more");
   });
 });
