@@ -46,7 +46,8 @@ describe("ToS Test", () => {
     );
   });
 
-  it.only("Projects", () => {
+  it("Projects", () => {
+    //Title project
     cy.visit("https://coreofscience.com/");
     cy.get(".projects > .container > h2").should("contain", "PROJECTS");
     cy.get(".projects > .container > h2 > img").should(
@@ -54,7 +55,7 @@ describe("ToS Test", () => {
       "src",
       "/assets/gear-icon.png"
     );
-
+    //Bio data lab
     cy.get(".featured-projects > :nth-child(1)").should(
       "contain",
       "Bio data lab"
@@ -66,6 +67,20 @@ describe("ToS Test", () => {
 
     cy.get(".featured-projects > :nth-child(1) > a")
       .should("have.attr", "href", "/projects/data-lab")
+      .and("have.text", "Learn more");
+
+    //Tree of Science
+    cy.get(".featured-projects > :nth-child(3) >h3").should(
+      "contain",
+      "Tree of Science"
+    );
+
+    cy.get(".featured-projects > :nth-child(3) > p").contains(
+      " reads files from Web of Science (WoS) and Scopus and creates recommendation dataframe using the metaphor of a tree. Papers in the root represent the seminals. Papers in the trunk represent the structural, and papers in the leaves present the current literature."
+    );
+
+    cy.get(".featured-projects > :nth-child(3) >a")
+      .should("have.attr", "href", "/projects/tos")
       .and("have.text", "Learn more");
   });
 });
