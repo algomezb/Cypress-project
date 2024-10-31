@@ -82,5 +82,19 @@ describe("ToS Test", () => {
     cy.get(".featured-projects > :nth-child(3) >a")
       .should("have.attr", "href", "/projects/tos")
       .and("have.text", "Learn more");
+
+    //Margaret
+    cy.get(".featured-projects > :nth-child(2) >h3").should(
+      "contain",
+      "Margaret"
+    );
+
+    cy.get(".featured-projects > :nth-child(2) > p").contains(
+      "Margaret is an R package created with some students from Universidad Católica Luis Amigó. This package extracts data from Minciencias web pages (research groups and researchers). Next, margaret merges it with data from Scimago, Publindex, and Google Scholar; finally, the merged data is exported in a "
+    );
+
+    cy.get(".featured-projects > :nth-child(2) >a")
+      .should("have.attr", "href", "/projects/margaret")
+      .and("have.text", "Learn more");
   });
 });
