@@ -12,7 +12,7 @@ describe("ToS Test", () => {
       .should("include", "/assets/logo-white.png");
   });
 
-  it("Links", () => {
+  it("Links Menu", () => {
     cy.visit("https://coreofscience.com/");
     cy.get("li:first-child > a").should("have.attr", "href", "/projects");
     cy.get("li:first-child > a").contains("PROJECTS", {
@@ -96,5 +96,12 @@ describe("ToS Test", () => {
     cy.get(".featured-projects > :nth-child(2) >a")
       .should("have.attr", "href", "/projects/margaret")
       .and("have.text", "Learn more");
+  });
+
+  it("Sponsor Links", () => {
+    cy.visit("https://coreofscience.com/");
+    cy.get("#bios").should("have.attr", "href", "https://bios.co");
+    cy.get("#funlam").should("have.attr", "href", "https://www.funlam.edu.co/");
+    cy.get("#unad").should("have.attr", "href", "https://www.unad.edu.co/");
   });
 });
