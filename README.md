@@ -6,7 +6,7 @@ This project focuses on automated end-to-end testing for Core of Science (https:
 
 ### Prerequisites
 
-Make sure you have the following installed on your system: `Node.js` (LTS version recommended) `npm` or `yarn`
+Make sure you have the following installed on your system: `Node.js` (LTS version recommended) `npm`
 
 ## Installation
 
